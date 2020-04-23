@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="HexoTool.Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HexoTool"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <GroupBox Header="设置" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Height="200" FontWeight="Bold">
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="SettingsTransfer" Height="32" Width="32" VerticalAlignment="Center" />
+                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="MarkDown编辑器" Margin="30,27,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="170" FontSize="18" FontWeight="Bold"/>
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="选择Editer" Width="200" Margin="30,27,0,73" Content="选择文件" FontWeight="Bold" FontSize="16" Click="Button_Click" x:Name="select"/>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="OK" HorizontalAlignment="Center" Margin="-380,60,0,0" FontWeight="Bold" FontSize="16" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                    OK
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

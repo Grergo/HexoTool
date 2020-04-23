@@ -1,0 +1,45 @@
+﻿<Window x:Class="HexoTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HexoTool"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="280" Width="620" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
+    <materialDesign:DialogHost Identifier="RootDialogHost" Height="280">
+        <Grid Background="Transparent" Margin="0" Width="620" Height="280" >
+            <GroupBox Header="HexoTool" Style="{DynamicResource MaterialDesignCardGroupBox}" Height="280" >
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <materialDesign:PackIcon Kind="FileDocumentBoxPlusOutline" Height="32" Width="32" VerticalAlignment="Center" />
+
+                            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}" />
+                            <Button Height="40" Width="60"  VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="350,0,0,0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="Setting_Click" >
+                                <materialDesign:PackIcon Kind="SettingsTransferOutline" Height="32" Width="32" HorizontalAlignment="Center"  />
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="60" materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="Close_Click">
+                                <materialDesign:PackIcon Kind="WindowClose"  Height="32" Width="32" HorizontalAlignment="Center"   />
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="文章模板：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="26" Margin="40,34,0,0" FontSize="16" FontWeight="Bold"/>
+                    <ComboBox VerticalAlignment="Top" Width="145" HorizontalAlignment="Left" Margin="20,20,0,0" Height="40" x:Name="sc" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Height="50" Margin="40,10,0,0"    materialDesign:HintAssist.Hint="文件名" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="222" FontSize="14" TextAlignment="Center" x:Name="Filenamebox"/>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionButton}" ToolTip="发布文章" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-520,0,0,20" x:Name="UpLoad" Click="UpLoad_Click">
+                        <materialDesign:PackIcon Kind="Upload" Height="24" Width="24" />
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionButton}" ToolTip="新建文章" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-80,0,0,20" x:Name="Newartical" Click="Newartical_Click">
+                        <materialDesign:PackIcon Kind="AddThick" Height="24" Width="24" />
+                    </Button>
+                    <materialDesign:Snackbar x:Name="sbar" Margin="-540,0,0,-10">
+                        <materialDesign:SnackbarMessage x:Name="sbarmessage" ActionContent="好" ActionClick="sbarmessage_ActionClick"/>
+                    </materialDesign:Snackbar>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>
